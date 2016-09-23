@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 DOCS_REPO_NAME="travis-test-target"
 DOCS_REPO_URL="git@github.com:sbstp/travis-test-target.git"
 

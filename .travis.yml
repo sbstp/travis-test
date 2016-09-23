@@ -4,15 +4,15 @@ sudo: false
 
 matrix:
   include:
-  - python: "2.6"
-  - python: "2.7"
-  - python: "3.3"
-  - python: "3.4"
+  # - python: "2.6"
+  # - python: "2.7"
+  # - python: "3.3"
+  # - python: "3.4"
   - python: "3.5"
     env: BUILD_DOCS=yes
 
 script:
   - python --version
-  - if [ "$TRAVIS_BRANCH"="master" && "$BUILD_DOCS"="yes" ] ; then
+  - if [ "$TRAVIS_BRANCH" = "master" ] && [ "$BUILD_DOCS" = "yes" ] ; then
   -     bash script/pushdocs.sh
   - fi
