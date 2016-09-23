@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [ "$TRAVIS_BRANCH" != "master" ] || [ "$BUILD_DOCS" != "yes" ] ; then
-    exit
+    exit 0
 fi
 
 DOCS_REPO_NAME="travis-test-target"
@@ -13,12 +13,16 @@ chmod 600 key
 eval `ssh-agent -s`
 ssh-add key
 
+# clone the repo
 git clone "$DOCS_REPO_URL" "$DOCS_REPO_NAME"
 bash script/makedocs.sh "$DOCS_REPO_NAME"
 
+# gti stuff
 cd "$DOCS_REPO_NAME"
+git config user.name "Travis CI"
+git config user.email "<>"
 git add --all
 # Check if anythhing changed, and if it's the case, push to origin/master.
-if git commit --author="Automated Update <>" -m 'update docs' ; then
+if git commit -m "update docs to commit=$TRAVIS_COMMIT" ; then
     git push origin master
 fi
