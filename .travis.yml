@@ -16,7 +16,7 @@ script:
 
 deploy:
   provider: script
-  script: script/update-docs.sh
+  script: script/pushdocs.sh
   skip_cleanup: true
   on:
     branch: master
