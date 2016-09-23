@@ -12,11 +12,12 @@ matrix:
     env: BUILD_DOCS=yes
 
 script:
-  - python -c 'print("test")'
+  - python --version
 
 deploy:
   provider: script
   script: script/update-docs.sh
+  skip_cleanup: true
   on:
     branch: master
     condition: $BUILD_DOCS=yes
