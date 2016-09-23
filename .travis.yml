@@ -13,6 +13,4 @@ matrix:
 
 script:
   - python --version
-  - if [ "$TRAVIS_BRANCH" = "master" ] && [ "$BUILD_DOCS" = "yes" ] ; then
-  -     bash script/pushdocs.sh
-  - fi
+  - bash script/pushdocs.sh
