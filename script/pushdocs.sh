@@ -23,7 +23,7 @@ git config user.name "Travis CI"
 git config user.email "<>"
 git add --all
 # Check if anythhing changed, and if it's the case, push to origin/master.
-if git commit -m "update docs to commit=$TRAVIS_COMMIT" ; then
+if git commit -m "update docs\n\nhttps://github.com/sbstp/travis-test/commit/$TRAVIS_COMMIT" ; then
     git push origin master
 fi
 
