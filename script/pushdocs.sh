@@ -17,7 +17,7 @@ ssh-add key
 git clone "$DOCS_REPO_URL" "$DOCS_REPO_NAME"
 bash script/makedocs.sh "$DOCS_REPO_NAME"
 
-# gti stuff
+# git config
 cd "$DOCS_REPO_NAME"
 git config user.name "Travis CI"
 git config user.email "<>"
@@ -26,3 +26,5 @@ git add --all
 if git commit -m "update docs to commit=$TRAVIS_COMMIT" ; then
     git push origin master
 fi
+
+exit 0

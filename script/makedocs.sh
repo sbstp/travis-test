@@ -4,4 +4,4 @@
 python --version
 
 # simulating build process
-echo "v1" >"$1/README"
+echo "v2" >"$1/README"
