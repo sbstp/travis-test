@@ -14,3 +14,6 @@ matrix:
 script:
   - python --version
   - bash script/pushdocs.sh
+
+notifications:
+  email: false
