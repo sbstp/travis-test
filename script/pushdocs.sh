@@ -7,7 +7,10 @@ fi
 DOCS_REPO_NAME="travis-test-target"
 DOCS_REPO_URL="git@github.com:sbstp/travis-test-target.git"
 
+# deal with private key
 openssl aes-256-cbc -K $encrypted_7d232113fa70_key -iv $encrypted_7d232113fa70_iv -in key.enc -out key -d
+chmod 600 key
+eval `ssh-agent -s`
 ssh-add key
 
 git clone "$DOCS_REPO_URL" "$DOCS_REPO_NAME"
